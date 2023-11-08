@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/net.xerxesbeat.audio.iml" filepath="$PROJECT_DIR$/net.xerxesbeat.audio.iml" />
+      <module fileurl="file://$PROJECT_DIR$/net.xerxesbeat.cord.iml" filepath="$PROJECT_DIR$/net.xerxesbeat.cord.iml" />
+      <module fileurl="file://$PROJECT_DIR$/net.xerxesbeat.cord.cords.iml" filepath="$PROJECT_DIR$/net.xerxesbeat.cord.cords.iml" />
+      <module fileurl="file://$PROJECT_DIR$/net.xerxesbeat.cord.knots.iml" filepath="$PROJECT_DIR$/net.xerxesbeat.cord.knots.iml" />
+      <module fileurl="file://$PROJECT_DIR$/net.xerxesbeat.data.iml" filepath="$PROJECT_DIR$/net.xerxesbeat.data.iml" />
+      <module fileurl="file://$PROJECT_DIR$/net.xerxesbeat.error.iml" filepath="$PROJECT_DIR$/net.xerxesbeat.error.iml" />
+      <module fileurl="file://$PROJECT_DIR$/net.xerxesbeat.event.iml" filepath="$PROJECT_DIR$/net.xerxesbeat.event.iml" />
+    </modules>
+  </component>
+</project>

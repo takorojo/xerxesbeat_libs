@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component inheritJdk="true">
+	<contentEntry url="file://$MODULE_DIR$/net.xerxesbeat.data"/>
+	<levels>
+		<level name="google.code.gson" value="project"/>
+	</levels>
+</component>
