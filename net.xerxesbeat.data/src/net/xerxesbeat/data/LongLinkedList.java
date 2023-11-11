@@ -2,65 +2,160 @@ package net.xerxesbeat.data;
 
 import net.xerxesbeat.error.exception.UnimplementedException;
 
+import java.util.Collection;
+
 public class LongLinkedList<T> extends List<T>
 {
 	private long length = 0;
-	private Node<T> root = null, current = null, end = null;
+	private LongLinkedList.Node<T> root = null, current = null, end = null;
 
-	public LongLinkedList () {}
+	public LongLinkedList () {
+		//
+	}
+
+	public LongLinkedList(java.util.List<T> data) {
+		for (int i = 0; i < data.size(); i++) {
+			append(data.get(i));
+		}
+	}
 
 	@Override
 	public boolean empty ()
 	{
-		throw new UnimplementedException ();
+		return root == null;
 	}
 
 	@Override
 	public long size ()
 	{
-		throw new UnimplementedException ();
+		return length;
 	}
 
 	@Override
 	public T peek ()
 	{
-		throw new UnimplementedException ();
+		return !empty() ? root.value : null;
 	}
 
 	@Override
 	public T pop ()
 	{
-		throw new UnimplementedException ();
+		if (empty()) {
+			return null;
+		}
+
+		// Save the end node
+		var node_to_pop = end;
+		var output = node_to_pop.value;
+		node_to_pop.prev.next = null;
+		end = node_to_pop.prev;
+
+		node_to_pop.next = null;
+		node_to_pop.prev = null;
+
+		length--;
+
+		return output;
 	}
 
 	@Override
 	public T last ()
 	{
-		throw new UnimplementedException ();
+		return !empty() ? end.value : null;
 	}
 
 	@Override
 	public T get ( long n )
 	{
-		throw new UnimplementedException ();
+		if (empty()) {
+			return null;
+		}
+
+		if (!empty() && n == 0) {
+			return root.value;
+		}
+
+		LongLinkedList.Node<T> output = root;
+
+		if (n < size() / 2) {
+			// It's in the first half, so search from the beginning
+			while (n-- > 0) {
+				output = output.next;
+			}
+		} else {
+			// It's in the second half, so search from the end.
+			output = end;
+			while (++n < size()) {
+				output = output.prev;
+			}
+		}
+
+		return output.value;
 	}
 
 	@Override
 	public boolean push ( T value )
 	{
-		throw new UnimplementedException ();
+		if (empty()) {
+			return append(value);
+		}
+
+		Node<T> new_node = new LongLinkedList.Node<T>(value);
+
+		new_node.next = root;
+		root.prev = new_node.next;
+		root = new_node;
+		length++;
+
+		return true;
 	}
 
 	@Override
 	public boolean append ( T value )
 	{
-		throw new UnimplementedException ();
+		// Allocate a new node with the given value
+		LongLinkedList.Node<T> new_node = new LongLinkedList.Node<T>(value);
+		LongLinkedList.Node<T> last = end;
+
+		// The new node is going to be the last node, so the one after should
+		// point to null
+		new_node.next = null;
+
+		// Make the new node the first one if the list is empty
+		if (empty()) {
+			new_node.prev = null;
+			root = new_node;
+			end = root;
+			current = root;
+			length++;
+			return true;
+		}
+
+		new_node.prev = end;
+		new_node.prev.next = new_node;
+
+		end = new_node;
+
+		length++;
+
+		return true;
 	}
 
 	@Override
 	public boolean set ( long n, T value )
 	{
-		throw new UnimplementedException ();
+		if (empty()) {
+			return false;
+		}
+
+		current = root;
+		for (int i = 0; i < n; i++) {
+			current = current.next;
+		}
+
+		current.value = value;
+
+		return true;
 	}
 
 	@Override
@@ -86,6 +181,6 @@ public class LongLinkedList<T> extends List<T>
 		Node prev = null, next = null;
 		T value = null;
 
-		public Node () {};
+		public Node (T new_value) { value = new_value; }
 	}
 }

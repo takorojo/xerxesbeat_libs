@@ -20,5 +20,8 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/net.xerxesbeat.error"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/net.xerxesbeat.cord"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/google.code.gson"/>
+	<classpathentry kind="lib" path="/Users/takorojo/.m2/repository/org/junit/jupiter/junit-jupiter/5.8.1/junit-jupiter-5.8.1.jar"/>
+	<classpathentry kind="lib" path="/Users/takorojo/.m2/repository/org/junit/jupiter/junit-jupiter/5.8.1/junit-jupiter-5.8.1.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/junit.jupiter.api"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

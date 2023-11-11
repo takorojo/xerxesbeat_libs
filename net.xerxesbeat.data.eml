@@ -3,5 +3,6 @@
 	<contentEntry url="file://$MODULE_DIR$/net.xerxesbeat.data"/>
 	<levels>
 		<level name="google.code.gson" value="project"/>
+		<level name="junit.jupiter.api" value="project"/>
 	</levels>
 </component>
